@@ -29,10 +29,8 @@ const Mensagem = sequelize.define('mensagem', {
     }
   }, { timestamps: true });
 
-Mensagem.belongsTo(Agendamento, 
-  { foreignKey: 'id' });
 Agendamento.hasMany(Mensagem, 
-  { foreignKey: 'xetId' });
+  { sourceKey: 'id', foreignKey: 'xetId' });
 (async () => {
   await sequelize.sync()
 })()
