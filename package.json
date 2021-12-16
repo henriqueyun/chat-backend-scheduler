@@ -1,9 +1,10 @@
 {
-  "name": "chat-agendamentos",
+  "name": "chat-backend-scheduler",
   "version": "1.0.0",
-  "description": "",
+  "description": "Crud to register Xets scheduling and messages",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "node -r dotenv/config src/index.js dotenv_config_path=.env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
