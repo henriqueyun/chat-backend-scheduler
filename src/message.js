@@ -29,7 +29,7 @@ const Message = sequelize.define('message', {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Agendamento,
+        model: Scheduling,
         key: 'id'
       }
     }
