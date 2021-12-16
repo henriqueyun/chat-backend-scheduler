@@ -4,7 +4,7 @@ This is the simple node.js backend part of the Xet Project, prepared to register
 
 ## Running
 
-First of all you must set these environment variables.
+First of all you must set these environment variables:
 
 `DB_NAME`: Database name;
 
@@ -16,12 +16,8 @@ First of all you must set these environment variables.
 
 `PORT`: Port where application will serve.
 
-After this, you also must have an Database running, currently I have only tested mysql. With the database ready run:
+After this, you also must have an database running, currently I have only tested with mysql. With the database ready run the hypercomplex:
 
-`npm start`
-
-### Todo
-
-- [ ] Dockerize
-- [ ] JSDocs
-- [ ] Review and finish tests
+```
+  npm start
+```
