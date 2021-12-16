@@ -11,7 +11,7 @@ const request = () => {
   return chai.request(server)
 }
 
-describe('Xet Agendamento Tests', function () {
+describe('Xet Scheduling Tests', function () {
   it("Post Xet", (done) => {    
     request()
     .post('/xet')
