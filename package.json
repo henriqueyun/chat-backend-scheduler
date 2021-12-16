@@ -19,5 +19,8 @@
     "restify": "^8.6.0",
     "restify-cors-middleware": "^1.1.1",
     "sequelize": "^6.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1"
   }
 }
