@@ -10,10 +10,11 @@ server.use(cors.actual)
 server.use(restify.plugins.bodyParser())
 
 const Scheduling = require('./scheduling')
-const Message = require('./mesasge')
+const Message = require('./message')
+
 const APIErrors = {
-  general: { message: 'Error: ' + JSON.stringify(err) },
-  missingBodyParams: { message: 'Error: ' + JSON.stringify(err) }
+  general: (err={}) => { message: 'Error: ' + JSON.stringify(err) },
+  missingBodyParams: (err={}) => { message: 'Error: ' + JSON.stringify(err) }
 }
 
 server.post('/xet', async (req, res) => {
@@ -29,7 +30,7 @@ server.post('/xet', async (req, res) => {
         res.send(500, APIErrors.general + err.message)
       })
   } else {
-    res.send(400, APIErrors.missingBodyParams)
+    res.send(400, APIErrors.missingBodyParams())
   }
 })
 
@@ -41,7 +42,7 @@ server.get('/xet/all', async (req, res) => {
       res.send(200, xets)
     }).catch(err => {
       logger.error(`/xet/all ${err.message}`)
-      res.send(500, APIErrors.general + err.message)
+      res.send(500, APIErrors.general(err.message))
     })
 })
 
@@ -53,7 +54,7 @@ server.get('/xet/:id/message/all', async (req, res) => {
       res.send(200, messages)
     }).catch(err => {
       logger.error(`/xet/:id/message/all ${err.message}`)
-      res.send(500, { message: APIErrors.general + err.message })
+      res.send(500, { message: APIErrors.general(err.message) })
     })
 })
  
@@ -67,7 +68,7 @@ server.post('/xet/:id/message', async (req, res) => {
       res.status(200)
     }).catch(err => {
       logger.error(`/xet/:id/message message body: ${JSON.stringify(message)} ${err.message}`)
-      res.send(500, { message: '' + JSON.stringify(err) })
+      res.send(500, APIErrors.general(err))
     })
 })
 
