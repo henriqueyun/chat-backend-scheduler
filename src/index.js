@@ -1,4 +1,4 @@
-const logger = require('pino')()
+const logger = require('./logger')
 const restify = require('restify')
 const server = restify.createServer()
 const corsMiddleware = require('restify-cors-middleware')
@@ -64,8 +64,8 @@ server.post('/xet/:id/message', async (req, res) => {
   message.xetId = req.params.id
   Message.create(message)
     .then(() => {
-      logger.debug(`/xet/:id/message ${scheduling}`)
-      res.status(200)
+      logger.debug(`/xet/:id/message ${message} created`)
+      res.send(200)
     }).catch(err => {
       logger.error(`/xet/:id/message message body: ${JSON.stringify(message)} ${err.message}`)
       res.send(500, APIErrors.general(err))

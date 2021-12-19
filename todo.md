@@ -1,3 +1,4 @@
 - [ ] Dockerize
 - [ ] Review and finish mocha tests
 - [ ] JSDocs
+- [ ] Logger Level 
