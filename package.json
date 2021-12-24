@@ -1,7 +1,7 @@
 {
   "name": "chat-backend-scheduler",
   "version": "1.0.0",
-  "description": "Crud to register Xets scheduling and messages",
+  "description": "Simple Web API to register Xets scheduling and messages",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
